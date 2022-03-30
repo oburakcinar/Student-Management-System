@@ -1,0 +1,114 @@
+h3 {
+	font-size: 20px;
+}
+
+
+
+table {
+	border-collapse: collapse;
+	text-align: center;	
+}
+
+thead {
+	height: 1.5em;
+	text-align: center;	
+}
+
+
+
+th {
+	background-color: #ffaa16;
+	color: white;
+}
+
+th,td {
+	width: 15%;
+	padding-left: 0.3em;
+}
+
+#table-top-left {
+	border-top-left-radius: 8px;
+}
+
+#table-top-right {
+	border-top-right-radius: 8px;
+}
+
+tr {
+	height: 47px;
+	background-color: #f0f0f5;
+}
+
+
+.card {
+	display: inline-block;
+	
+    width: 30%;
+    max-width: 250px;
+    min-width: 160px;
+    text-align: center;    
+    margin: 2%;
+    margin-left: 0px;
+    position: relative;
+}
+
+.card a {
+	text-decoration: none;
+	display: block;
+	background-color: #1367c8;
+	border-radius: 5px;
+	height: 90px;
+}
+
+.card a:hover {
+	background-color: rgba(19, 103, 200, 0.7);
+}
+
+.fa-clipboard-list {
+	color: rgba(19, 103, 200, 1);
+}
+
+.card i {
+	width: 40px;
+    line-height: 40px;
+    border-radius: 100px;
+    background-color: #f7f8fa;
+    font-size: 20px;
+    position: absolute;
+    left: 15%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.card span {
+	font-size: 20px;
+	color: #f7f8fa;
+}
+
+
+#card-name {
+	line-height: 20px;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateY(-30%);	
+}
+
+#card-day {
+	line-height: 20px;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translateY(-70%);
+}
+
+@media screen and (max-width: 557px) {
+  .card-container {
+  	width: 165px;
+  }
+  
+  .card {
+  	margin-bottom: 10px;
+  }
+}
+

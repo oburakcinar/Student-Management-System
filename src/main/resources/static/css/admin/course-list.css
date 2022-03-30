@@ -1,0 +1,64 @@
+h3 {
+    text-align: center;
+    font-size: 24px;
+}
+
+.container {
+	width: 60vw;
+    margin: auto;
+}
+
+.short-col {
+	width: 15vw;
+	max-width: 200px;
+}
+
+table {
+	width: 100%;
+}
+
+td i {
+	display: none !important;	
+}
+
+.button {
+	background-color: rgba(72, 209, 204, 1);
+	margin: 3px 0;
+}
+
+.button:hover {
+	background-color: rgba(72, 209, 204, 0.7);
+}
+
+.add-button {
+	background-color: rgba(19, 103, 200, 1);
+	width: 130px;
+    line-height: 36px;
+    margin-top: 15px;
+}
+
+.add-button:hover {
+	background-color: rgba(19, 103, 200, 0.7);
+}
+
+
+@media screen and (max-width: 1000px) {
+  .short-col {
+  	width: 60px;
+  }
+  
+  td i {
+  	display: inline-block !important;
+  }
+ 
+  td span {
+ 	display: none !important;
+  }
+ 
+  table .button {
+ 	width: 40px;	
+  }
+}
+
+
+

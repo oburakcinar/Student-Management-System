@@ -1,0 +1,51 @@
+h2 {
+	text-align: center;
+}
+
+table {
+	margin: 0;
+}
+
+#table-one {
+	margin-top: 20px;
+	max-width: 800px;
+}
+
+#table-two {
+	max-width: 1500px;
+}
+
+#table-two th, #table-two td {
+	width: 10vw;
+	min-width: 100px;	
+}
+
+#table-three tr:nth-child(odd):hover {
+	background-color: #f0f0f5;	
+}
+
+#table-three tr:nth-child(even):hover {
+	background-color: white;	
+}
+
+.no-padding {
+	padding: 0;
+}
+
+.new-button {
+	width: 150px;
+	line-height: 40px;
+	margin-top: 10px;
+}
+
+.edit-button {
+	width: 100px;
+	line-height: 35px;
+	margin-top: 10px;
+}
+
+@media screen and (max-width: 1445px) {
+  .button {
+  	margin: 3px 0;
+  }
+}

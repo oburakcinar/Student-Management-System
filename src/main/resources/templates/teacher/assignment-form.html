@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>New Assignment</title>
+	
+	<link rel="stylesheet" th:href="@{/css/student/student-navbar.css}">	
+	
+	<link rel="stylesheet" th:href="@{/css/admin/course-form.css}">
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+	<nav>
+		<i class="fa fa-mortar-board"></i>
+		<h1>STUDENT MANAGEMENT SYSTEM</h1>		
+		<ul>
+			<li>								
+				<a><i class="fa fa-user-circle"></i><span th:text="${teacher.firstName}"></span></a>
+				<ul class="dropdown">
+					<li>										
+						<form action="#" th:action="@{/logout}" method="POST">	
+							<input type="submit" value="Logout"></input>						
+						</form>						
+					</li>
+				</ul>
+			</li>
+		</ul>		
+	</nav>
+	
+	<div class="vertical-navbar">
+		<ul th:each="course : ${courses}">
+			<li><a th:href="@{/teacher/{teacherId}/courses/{courseId}(teacherId=${teacher.id}, courseId=${course.id})}"><i class="fa fa-tag fa-navbar"></i><span th:text="${course.code}"></span></a></li>
+		</ul>
+	</div>
+	
+	
+	<div class="content">
+	
+	<div class="container">
+	
+	<h3>Add New Assignment</h3>
+	
+	<form action="#" th:action="@{/teacher/{teacherId}/courses/{courseId}/addNewAssignment/save(teacherId=${teacher.id}, courseId=${course.id})}" 
+		th:object="${assignment}" method="POST">
+		
+		
+		<div class="form-input-item">
+		<div>Name:</div> <input type="text" th:field="*{name}">
+		<p th:if="${#fields.hasErrors('name')}" class="error">Please enter a name!</p>
+		</div>
+		
+		<div class="form-input-item">
+		<div>Description:</div><input type="text" th:field="*{description}"> 
+		<p th:if="${#fields.hasErrors('description')}" class="error">Please enter a description!</p>
+		</div>
+		
+		<div class="form-input-item">
+		<div>Due Date:</div> <input type="date" th:field="*{dueDate}" id="dateControl" >
+		<p th:if="${#fields.hasErrors('dueDate')}" class="error">Please enter a date!</p>
+		</div>
+				
+		<button type="submit">Save</button>
+		
+	</form>
+	
+	</div>
+	</div>
+	
+	<!-- script for restricting past dates in input date -->
+	<script>
+	$(document).ready(function(){
+		var dtToday = new Date();
+		var month = dtToday.getMonth() + 1;
+		var day = dtToday.getDate();
+		var year = dtToday.getFullYear();
+		
+		if(month < 10)
+			month = '0' + month.toString();
+		
+		if(day < 10)
+			day = '0' + day.toString(); 
+		
+		var maxDate = year + '-' + month + '-' + day;
+		
+		$('#dateControl').attr('min', maxDate);
+	})
+	</script>
+
+</body>
+
+</html>

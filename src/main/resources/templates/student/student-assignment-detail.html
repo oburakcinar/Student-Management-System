@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Courses</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="stylesheet" th:href="@{/css/student/student-navbar.css}">
+	
+	<link rel="stylesheet" th:href="@{/css/student/student-assignment-detail.css}">
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+	
+	<nav>
+		<i class="fa fa-mortar-board"></i>
+		<h1>STUDENT MANAGEMENT SYSTEM</h1>		
+		<ul>
+			<li>								
+				<a><i class="fa fa-user-circle"></i><span th:text="${student.firstName}"></span></a>
+				<ul class="dropdown">
+					<li>										
+						<form action="#" th:action="@{/logout}" method="POST">	
+							<input type="submit" value="Logout"></input>						
+						</form>						
+					</li>
+				</ul>
+			</li>
+		</ul>		
+	</nav>
+	
+	<div class="vertical-navbar">
+		<ul th:each="course : ${courses}">
+			<li><a th:href="@{/student/{studentId}/courses/{courseId}(studentId=${student.id}, courseId=${course.id})}"><i class="fa fa-tag fa-navbar"></i><span th:text="${course.code}"></span></a></li>
+		</ul>
+	</div>
+	
+	
+	
+	
+	<div class="content">
+	
+	<h3>Assignment</h3>
+	
+	<span>Name:</span><div th:text="${assignment.name}"></div>
+	<span>Description:</span><div th:text="${assignment.description}"></div>
+	<span>Due Date:</span><div th:text="${assignment.dueDate}"></div>
+	<span>Days Left:</span>
+	<div th:if="${assignment.daysRemaining >= 0}" th:text="${assignment.daysRemaining}"></div>
+	<div th:if="${assignment.daysRemaining < 0}">Overdue</div>
+	<span>Status:</span>
+	<span th:if="${assignmentDetails.isDone == 1}" id="completed">Completed</span>
+	<span th:if="${assignmentDetails.isDone == 0}" id="incomplete">Incomplete</span>
+	<div th:if="${assignmentDetails.isDone == 0}">
+		<a class="button" th:href="@{/student/{studentId}/courses/{courseId}/markAsCompleted/{assignmentId}
+		(studentId=${student.id}, courseId=${course.id}, assignmentId=${assignmentDetails.getAssignmentId()})}"
+		onclick="if (!(confirm('Are you sure you want to mark the asignment as completed?'))) return false">
+		Mark as completed</a>
+	</div>
+	
+	
+		
+		
+	</div>
+	
+	
+	
+	
+	</div>
+</body>
+
+</html>

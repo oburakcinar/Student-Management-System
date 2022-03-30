@@ -1,0 +1,48 @@
+h3 {
+	font-size: 24px;
+	text-align: center;
+}
+
+table {
+	width: 90%;
+}
+
+.short-col {
+	width: 100px;
+}
+
+td i {
+	display: none !important;	
+}
+
+#alert {
+	margin-top: 20px;
+	color: #ff1616;
+}
+
+@media screen and (max-width: 900px) {
+  .short-col {
+  	width: 55px;
+  }
+  
+  td i {
+  	display: inline-block !important;
+  }
+ 
+  td a span {
+ 	display: none !important;
+  }
+ 
+  table .button {
+ 	width: 30px;
+ 	line-height: 30px;	
+  }
+}
+
+@media screen and (min-width: 1420px) {
+	table {
+		width: 80%;
+	}  
+}
+
+

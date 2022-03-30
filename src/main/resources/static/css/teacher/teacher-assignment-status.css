@@ -1,0 +1,36 @@
+h3 {
+	font-size: 22px;
+}
+
+.no-padding {
+	padding: 0;
+}
+
+.table {
+	margin: 0;
+	width: 60%;
+	min-width: 500px;
+	max-width: 930px;
+}
+
+#inner-table-one {
+	width: 50vw;
+	min-width: 380px;
+	max-width: 700px;
+	margin: 0;
+}
+
+#inner-table-two {
+	width: 15vw;
+	min-width: 120px;
+	max-width: 230px;
+	margin: 0;
+}
+
+.table tr:nth-child(odd):hover {
+	background-color: #f0f0f5;	
+}
+
+.table tr:nth-child(even):hover {
+	background-color: white;	
+}

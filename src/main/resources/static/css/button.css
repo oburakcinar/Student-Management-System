@@ -1,0 +1,31 @@
+.button {
+	width: 70px;
+    line-height: 30px;
+    background-color: #1367c8;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    color: black;
+    border-radius: 5px;
+}
+
+.button:hover {
+	background-color: rgba(19, 103, 200, 0.7);
+}
+
+.delete-button {
+	background-color: #ff1616 !important;
+}
+
+.courses-button {
+	background-color: rgba(72, 209, 204, 1);
+}
+
+.courses-button:hover {
+	background-color: rgba(72, 209, 204, 0.8);
+}
+
+.delete-button:hover {
+	background-color: rgba(255, 22, 22, 0.6) !important;
+}
+

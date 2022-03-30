@@ -1,0 +1,72 @@
+h3 {
+	text-align: center;
+	font-size: 24px;
+}
+
+
+.content {
+	padding: 0;
+}
+
+
+.card-container {
+	width: 75%;
+	max-width: 750px;
+    margin: auto;
+}
+
+.card {
+	display: inline-block;
+	line-height: 90px;
+    width: 30%;
+    max-width: 250px;
+    min-width: 160px;
+    text-align: center;
+    background: #1367c8;
+    border-radius: 5px;
+    margin: 1.4%;
+}
+
+.card i {
+	width: 40px;
+    line-height: 40px;
+    border-radius: 100px;
+    background-color: #f7f8fa;
+    margin-right: 1vw;
+}
+
+.card span {
+	font-size: 20px;
+	color: #f7f8fa;
+}
+
+#students {
+	background-color: #ffaa16;
+}
+
+#teachers {
+	background-color: #ff1616;
+}
+
+.fa-user {
+	font-size: 20px !important;
+}
+
+.fa-user-secret {
+	font-size: 20px !important;
+}
+
+.fa-pencil {
+	font-size: 20px !important;
+}
+
+
+@media screen and (max-width: 557px) {
+  .card-container {
+  	width: 165px;
+  }
+  
+  .card {
+  	margin-bottom: 10px;
+  }
+}

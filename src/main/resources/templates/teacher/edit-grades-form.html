@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Edit Grades</title>
+	
+	<link rel="stylesheet" th:href="@{/css/student/student-navbar.css}">
+	
+	<link rel="stylesheet" th:href="@{/css/button.css}">
+	
+	<link rel="stylesheet" th:href="@{/css/teacher/.css}">
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+	
+	<nav>
+		<i class="fa fa-mortar-board"></i>
+		<h1>STUDENT MANAGEMENT SYSTEM</h1>		
+		<ul>
+			<li>								
+				<a><i class="fa fa-user-circle"></i><span th:text="${teacher.firstName}"></span></a>
+				<ul class="dropdown">
+					<li>										
+						<form action="#" th:action="@{/logout}" method="POST">	
+							<input type="submit" value="Logout"></input>						
+						</form>						
+					</li>
+				</ul>
+			</li>
+		</ul>		
+	</nav>
+	
+	<div class="vertical-navbar">
+		<ul th:each="course : ${courses}">
+			<li><a th:href="@{/teacher/{teacherId}/courses/{courseId}(teacherId=${teacher.id}, courseId=${course.id})}"><i class="fa fa-tag fa-navbar"></i><span th:text="${course.code}"></span></a></li>
+		</ul>
+	</div>
+	
+	<div class="content">
+	
+	<h3 th:text="${course.name + ' Edit Grades'}"></h3>	
+	
+	 
+	 <table>
+	 	<tr>
+	 		<td>
+	 			<table>
+	 				<thead>
+	 					<tr>
+	 						<th>Student</th>
+	 					</tr>
+	 				</thead>
+	 				<tbody>
+	 					<tr th:each="student : ${students}">
+	 						<td th:text="${student.firstName + ' ' + student.lastName}">
+	 					</tr>
+	 				</tbody>
+	 			</table>			
+	 		</td>
+	 		
+	 		<td>
+	 			<table>
+	 				<thead>
+	 					<tr>
+	 						<th>Grade 1</th>
+	 						<th>Grade 2</th>
+	 						<th>Grade 3</th>
+	 						<th>Action</th>
+	 					</tr>
+	 				</thead>
+	 				<tbody>
+	 					<tr th:each="gradeDetails : ${gradeDetailsList}">
+	 						<form th:action="@{/teacher/{teacherId}/courses/{courseId}/editGrades/save/{gradeDetailsId}
+    							(teacherId=${teacher.id}, courseId=${course.id}, gradeDetailsId=${gradeDetails.id})}" method="POST">								
+        						<td>	
+        							<input th:name="gradeOne" th:value="${gradeDetails.gradeOne}"/>
+        						</td>
+        						<td>
+        							<input th:name="gradeTwo" th:value="${gradeDetails.gradeTwo}"/>
+        						</td>
+        						<td>	
+        							<input th:name="gradeThree" th:value="${gradeDetails.gradeThree}"/>
+        						</td>
+        						<td>	
+        							<button class="submit-button" type="submit">Modify</button>
+        						</td>
+    						</form>		
+	 					</tr>
+	 				</tbody>
+	 			</table>
+	 		</td>	 
+	 </table>
+	 
+	
+	</div>
+</body>
+
+</html>
+
+

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Student List</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	 
+	<link rel="stylesheet" th:href="@{/css/navbar.css}">
+	
+	<link rel="stylesheet" th:href="@{/css/table.css}">
+	
+	<link rel="stylesheet" th:href="@{/css/button.css}">
+	
+	<link rel="stylesheet" th:href="@{/css/admin/student-list.css}">
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+	<nav>
+		<i class="fa fa-mortar-board"></i>
+		<h1>STUDENT MANAGEMENT SYSTEM</h1>		
+		<ul>
+			<li>								
+				<a><i class="fa fa-user-circle"></i>Admin</a>
+				<ul class="dropdown">
+					<li>										
+						<form action="#" th:action="@{/logout}" method="POST">	
+							<input type="submit" value="Logout"></input>						
+						</form>						
+					</li>
+				</ul>
+			</li>
+		</ul>		
+	</nav>
+	
+	<div class="vertical-navbar">
+		<ul>
+			<li><a th:href="@{/admin/adminPanel}"><i class="fa fa-home fa-navbar"></i><span>Dashboard</span></a></li>
+			<li><a th:href="@{/admin/courses}"><i class="fa fa-pencil fa-navbar"></i><span>Courses</span></a></li>
+			<li><a th:href="@{/admin/students}"><i class="fa fa-user fa-navbar"></i><span>Students</span></a></li>
+			<li><a th:href="@{/admin/teachers}"><i class="fa fa-user-secret fa-navbar"></i><span>Teachers</span></a></li>
+			<li><a th:href="@{/admin/adminPanel}"><i class="fa fa-calendar fa-navbar"></i><span>Calendar</span></a></li>
+			<li><a th:href="@{/admin/adminPanel}"><i class="fa fa-bullhorn fa-navbar"></i><span>Announcements</span></a></li>
+			<li><a th:href="@{/admin/adminInfo}"><i class="fa fa-info-circle fa-navbar"></i><span>Info</span></a></li>
+		</ul>
+	</div>
+	
+	<div class="content">
+	<h3>Student List</h3>
+	
+	<div th:if="${students.size() == 0}">There are no students.</div>
+	
+	<div th:if="${students.size() != 0}">
+	
+	<table>
+		<thead>
+			<tr>
+				<th id="table-top-left" class="short-cell">Id</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Email</th>
+				<th id="table-top-right" class="action-col">Action</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="student : ${students}">
+				<td class="short-cell" th:text="${student.id}">
+				<td th:text="${student.firstName}">
+				<td th:text="${student.lastName}">
+				<td th:text="${student.email}">
+				<td class="action-col">
+					<a class="button courses-button" th:href="@{/admin/students/{studentId}/courses(studentId=${student.id})}">
+					<i class="fa fa-eye"></i> <span>Courses</span></a>
+					<a class="button delete-button" th:href="@{/admin/students/delete(studentId=${student.id})}"
+					onclick="if (!(confirm('Are you sure you want to delete this student?'))) return false">
+					<i class="fa fa-trash"></i><span>Delete<span></a>
+				</td>
+			</tr>
+		</tbody>
+	
+	</table>
+	
+	</div>
+	</div>
+</body>
+
+</html>

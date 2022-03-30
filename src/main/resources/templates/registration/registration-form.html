@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xlmns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Registration Form</title>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">	
+	
+	<link rel="stylesheet" th:href="@{/css/registration/registration-form.css}">
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+	<div class="top">
+		<i class="fa fa-mortar-board"></i>
+		<h2>Student Management System</h2>
+	</div>
+	
+	<div class="container">
+	
+	<h3>Registration Form</h3>
+	 
+	<form th:action="@{/register/processRegistrationForm}" th:object="${userDto}" method="POST">
+	
+	<div th:if="${registrationError}" th:text="${registrationError}"></div>
+	
+	
+	<div class="form-input-item">
+		<span>User name: </span><input type="text" th:field="*{userName}"> 
+		<p th:if="${#fields.hasErrors('userName')}" class="error">Invalid user name!</p>
+	</div>
+	
+	
+	<div class="form-input-item">
+		<span>Password: </span><input type="password" th:field="*{password}"> 
+		<p th:if="${#fields.hasErrors('password')}" class="error">Invalid password!</p>
+	</div>
+	
+	<div class="form-input-item">
+		<span>First name: </span><input type="text" th:field="*{firstName}"> 
+		<p th:if="${#fields.hasErrors('firstName')}" class="error">Invalid first name!</p>
+	</div>
+	
+	<div class="form-input-item">
+		<span>Last name: </span><input type="text" th:field="*{lastName}"> 
+		<p th:if="${#fields.hasErrors('lastName')}" class="error">Invalid last name!</p>
+	</div>
+	
+	<div class="form-input-item">
+		<span>Email: </span><input type="text" th:field="*{email}"> 
+		<p th:if="${#fields.hasErrors('email')}" class="error">Invalid email!</p>
+	</div>
+	
+	<div class="form-input-item">
+		User role:   
+		<select th:name="role">
+			<option th:value="'ROLE_STUDENT'" th:text="Student"></option>
+    		<option th:value="'ROLE_TEACHER'" th:text="Teacher"></option>
+		</select> 
+		
+	</div>
+	
+	 
+	
+	<button type="submit">Register</button>
+		
+	</form>
+	
+	<hr>
+	
+	<span id="login">Already registered?</span>
+	<a th:href="@{/showLoginPage}">Login</a> 
+	
+	
+	</div>
+	
+	<div class="bottom"> </div>
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+h3 {
+	font-size: 24px;
+    text-align: center;
+}
+
+table {
+	width: 90%;
+}
+
+
+.short-cell {
+	width: 60px;
+}
+
+.action-col {
+	width: 130px;
+}
+
+td i {
+	display: none !important;	
+}
+
+
+@media screen and (max-width: 900px) {
+  .action-col {
+  	width: 80px;
+  }
+  
+  td i {
+  	display: inline-block !important;
+  }
+ 
+  td span {
+ 	display: none !important;
+  }
+ 
+  table .button {
+ 	width: 30px;
+ 	line-height: 30px;	
+  }
+}
+
+
+@media screen and (min-width: 1420px) {
+  table {
+  	width: 80%;
+  }
+}

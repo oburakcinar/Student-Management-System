@@ -1,0 +1,62 @@
+h3 {
+	font-size: 24px;
+    text-align: center;
+}
+
+.content {
+	padding: 20px 6vw 0px;
+}
+
+table {
+	width: 100%;
+}
+
+.short-col{
+	width: 100px;	
+}
+
+.delete-button {
+	width: 60%;
+	max-width: 100px;	
+}
+
+.delete-button i {
+	display: none;	
+}
+
+
+
+.add-button {
+	width: 200px;
+    line-height: 40px;
+    margin-top: 10px;
+}
+
+
+
+@media screen and (max-width: 800px) {
+	.short-col {
+		width: 50px;
+	}
+	
+	.delete-button {
+		width: 30px;
+		line-height: 30px;
+	}
+	
+	.delete-button i {
+		display: inline-block;
+	}
+	
+	.delete-button span {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 1366px) {
+	.content {
+		padding: 20px 10vw 0px;
+	}
+}
+
+

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Courses</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="stylesheet" th:href="@{/css/student/student-navbar.css}">
+	
+	
+	
+	<link rel="stylesheet" th:href="@{/css/student/student-course-detail.css}">
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	
+	<nav>
+		<i class="fa fa-mortar-board"></i>
+		<h1>STUDENT MANAGEMENT SYSTEM</h1>		
+		<ul>
+			<li>								
+				<a><i class="fa fa-user-circle"></i><span th:text="${student.firstName}"></span></a>
+				<ul class="dropdown">
+					<li>										
+						<form action="#" th:action="@{/logout}" method="POST">	
+							<input type="submit" value="Logout"></input>						
+						</form>						
+					</li>
+				</ul>
+			</li>
+		</ul>		
+	</nav>
+	
+	<div class="vertical-navbar">
+		<ul th:each="course : ${courses}">
+			<li><a th:href="@{/student/{studentId}/courses/{courseId}(studentId=${student.id}, courseId=${course.id})}"><i class="fa fa-tag fa-navbar"></i><span th:text="${course.code}"></span></a></li>
+		</ul>
+	</div>
+	
+	<div class="content">
+	
+	<h3>Assignments</h3>
+	
+	<div th:if="${assignments.size() == 0}">There are no assignments.</div>
+	
+	<div  th:if="${assignments.size() != 0}">
+		
+		<div class="card-container">
+			<div class="card" th:each="assignment : ${assignments}">
+				<a th:href="@{/student/{studentId}/courses/{courseId}/assignment/{assignmentId}
+									(studentId=${student.id}, courseId=${course.id}, 
+									assignmentId=${assignment.id})}">
+					<i class="fas fa-clipboard-list"></i>
+					<span id="card-name" th:text="${assignment.name}"></span>
+					<span id="card-day" th:if="${assignment.daysRemaining >= 0}" th:text="${assignment.daysRemaining + ' days'}"></span>
+					<span id="card-day" th:if="${assignment.daysRemaining < 0}">Overdue</span>
+				</a>
+			</div>
+		</div>
+	</div>
+	
+	
+	<h3>Grades</h3>
+	  
+	<table>
+		<thead>
+			<tr>
+				<th id="table-top-left">Grade 1</th>
+				<th>Grade 2</th>
+				<th id="table-top-right">Grade 3</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr>
+				<td th:if="${gradeDetails.getGradeOne() == -1}">-</td>
+				<td th:if="${gradeDetails.getGradeOne() != -1}" th:text=${gradeDetails.gradeOne}></td>					
+				<td th:if="${gradeDetails.getGradeTwo() == -1}">-</td>
+				<td th:if="${gradeDetails.getGradeTwo() != -1}" th:text=${gradeDetails.gradeTwo}></td>
+				<td th:if="${gradeDetails.getGradeThree() == -1}">-</td>
+				<td th:if="${gradeDetails.getGradeThree() != -1}" th:text=${gradeDetails.gradeThree}></td>	
+			</tr>
+		</tbody>
+	</table>
+	
+	</div>
+</body>
+
+</html>

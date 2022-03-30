@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Assignment Status List</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="stylesheet" th:href="@{/css/student/student-navbar.css}">
+	
+	<link rel="stylesheet" th:href="@{/css/table.css}">
+	
+	<link rel="stylesheet" th:href="@{/css/teacher/teacher-assignment-status.css}">
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+	<nav>
+		<i class="fa fa-mortar-board"></i>
+		<h1>STUDENT MANAGEMENT SYSTEM</h1>		
+		<ul>
+			<li>								
+				<a><i class="fa fa-user-circle"></i><span th:text="${teacher.firstName}"></span></a>
+				<ul class="dropdown">
+					<li>										
+						<form action="#" th:action="@{/logout}" method="POST">	
+							<input type="submit" value="Logout"></input>						
+						</form>						
+					</li>
+				</ul>
+			</li>
+		</ul>		
+	</nav>
+	
+	<div class="vertical-navbar">
+		<ul th:each="course : ${courses}">
+			<li><a th:href="@{/teacher/{teacherId}/courses/{courseId}(teacherId=${teacher.id}, courseId=${course.id})}"><i class="fa fa-tag fa-navbar"></i><span th:text="${course.code}"></span></a></li>
+		</ul>
+	</div>
+	
+	
+	<div class="content">
+	
+	<h3>Assignment Status List</h3>
+	
+	<table class="table">
+		<tr th:each="element : ${list}" >
+			<td class="no-padding">
+				<table id="inner-table-one">
+					<thead>
+						<tr>
+							<th id="table-top-left">Student Name</th>
+							<th>Email</th>
+						</tr>	
+					</thead>
+					
+					<tbody>
+						<tr th:each="student : ${element.key}">
+							<td th:text="${student.firstName + ' ' + student.lastName}"></td>
+							<td th:text="${student.email}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+			
+			<td class="no-padding">
+				<table id="inner-table-two">
+					<thead>
+						<tr>
+							<th id="table-top-right">Status</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="isDone : ${element.value}">
+							<td th:text="${isDone}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		
+		</tr>
+	</table>
+	
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,147 @@
+h3 {
+	text-align: center;
+	font-size: 24px;
+}
+
+.content {
+	/*
+	float: left;
+	padding: 20px 3vw 0px;
+	width: 84.7%;
+	box-sizing: border-box;
+	*/
+	
+	padding: 20px 3vw 0px;
+	margin-left: 15vw;
+}
+
+.sections {
+	width: 90%;
+	margin: auto;
+}
+
+.section {
+	float: left;
+    width: 44%;
+    height: 250px;
+    background-repeat: no-repeat;
+    background-color: rgba(244, 67, 54, 0.6);
+    background-position: center;
+    background-size: 175px;
+    margin: 2vw;
+    position: relative;
+    font-weight: bold;
+}
+
+#add-course {
+	background-image: url("/images/add-course.png");
+	
+}
+
+#courses {
+	background-image: url("/images/course.png");
+	background-size: 220px;
+}
+
+#students {
+	background-image: url("/images/student.png");
+	background-size: 230px
+}
+
+#teachers {
+	background-image: url("/images/teacher.png");
+}
+
+.section:hover {
+	background-color: rgba(244, 67, 54, 0.8);
+}
+
+.section a {
+	height: 100%;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    
+}
+
+.section a div {
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+    text-align: center;
+    font-size: 20px;
+    color: #333;
+}
+
+@media screen and (min-width: 1340px) {
+  .content {
+  	margin-left: 200px;
+  }
+  
+  .sections {
+  	width: 915px;
+  }
+  
+  .section {
+  	width: 400px;
+  	margin: 28px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+	.sections {
+		width: 70%;
+	}
+	
+	.section {
+  		width: 90%;
+    	height: 35vw;
+    	background-size: 60% !important;	
+  	}
+  	
+  	.section a div {
+  	font-size: 16px;
+  	}
+  	
+  	#teachers, #add-course {
+  		background-size: 40% !important;
+  	}
+  
+}
+
+
+@media screen and (min-width: 600px) and (max-width: 900px) {
+  .section {
+  	height: 175px;
+  	background-size: 150px !important;	
+  }
+  
+  .section a div {
+  	font-size: 16px;
+  }
+  
+  #teachers, #add-course {
+  	background-size: 110px !important;
+  }
+  
+}
+
+/*
+	<nav class="navbar">
+		<ul class="nav-list">
+			<li><a th:href="@{/admin/adminPanel}">Home</a></li>
+			<li><a th:href="@{/admin/courses}">Courses</a></li>
+			<li><a th:href="@{/admin/students}">Students</a></li>
+			<li><a th:href="@{/admin/teachers}">Teachers</a></li>
+			
+			<li class="right-nav">
+				<form action="#" th:action="@{/logout}" method="POST">	
+					<input type="submit" value="Logout" class="logout"/>
+				</form>	
+			</li>
+			<li class="right-nav"><p>Welcome, admin!</p></li>
+		</ul>
+		
+	</nav>
+*/

@@ -1,0 +1,53 @@
+h3 {
+	text-align: center;
+	font-size: 24px;
+}
+
+p {
+	font-size: 18px;
+}
+
+
+.container {
+	width: 60vw;
+    margin: auto;
+}
+
+table {
+	width: 100%;
+}
+
+td i {
+	display: none !important;
+}
+
+.short-col {
+	width: 80px;	
+}
+
+#add-button {
+	width: 100px;
+    line-height: 35px;
+    margin-top: 15px;
+}
+
+
+@media screen and (max-width: 1000px) {
+  .short-col {
+  	width: 40px;
+  }
+  
+  td i {
+  	display: inline-block !important;
+  }
+ 
+  td span {
+ 	display: none !important;
+  }
+ 
+  table .button {
+ 	width: 30px;
+ 	line-height: 30px;	
+  }
+}
+
