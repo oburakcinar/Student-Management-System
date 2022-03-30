@@ -27,15 +27,6 @@ import com.burak.studentmanagement.service.StudentCourseDetailsService;
 import com.burak.studentmanagement.service.StudentService;
 import com.burak.studentmanagement.service.TeacherService;
 
-//vertical navbar li span 2.satır gecince bosluk var ----yapamadım
-//hic veri yokken tum sekmeleri kontrol et
-//teacher-student vertical navbar ilerde degismeli
-//teacher course details cirkin
-//search kutusu ekle
-//refactor yap
-//sayfa back to list buttons
-//register sonrasi success page
-
 
 @Controller
 @RequestMapping("/admin")
